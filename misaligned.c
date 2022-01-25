@@ -47,14 +47,17 @@ void testNumberColorPairCode(int colorNum, int majorColorCode, int minorColorCod
     printf("actual color code \n pair number = %d \tcolor combo = %d\n",colorNum+1, expectedColorCombo);
     ColorComboVar_St.givenColorCombo[colorNum] = combo;
     ColorComboVar_St.actualColorCobo[colorNum] = expectedColorCombo;
-    assert(ColorComboVar_St.givenColorCombo[colorNum] == ColorComboVar_St.actualColorCobo[colorNum]);
+//    assert(ColorComboVar_St.givenColorCombo[colorNum] == ColorComboVar_St.actualColorCobo[colorNum]);
 }
 
 int main() {
-//    int checkComboNumber = 20;
+    int checkComboNumber = 20;
     ColorComboCheck result_St = printColorMap();
+    /* First assert will pass */
     assert(result_St.givenInputNum == 25);
-//    assert(result_St.givenColorCombo[checkComboNumber] == result_St.actualColorCobo[checkComboNumber]);
+    /* negative test case */
+    printf(" input combination = %d \t expected combination = %d\n",result_St.givenColorCombo[checkComboNumber],result_St.actualColorCobo[checkComboNumber]);
+    assert(result_St.givenColorCombo[checkComboNumber] == result_St.actualColorCobo[checkComboNumber]);
     printf("All is well (maybe!)\n");
     return 0;
 }
