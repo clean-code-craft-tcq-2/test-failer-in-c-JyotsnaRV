@@ -27,11 +27,11 @@ ColorComboCheck printColorMap() {
 void testNumberColorPairCode(int colorNum, int majorColorCode, int minorColorCode)
 {
     int expectedColorCombo, combo;
-    if((colorNum+1) <= 5)
+    if((colorNum) < 5)
     {
         colorCodeCombo = -1;
     }
-    else if((colorNum+1)%5 == 0)
+    else if(((colorNum)%5) == 0)
     {
         colorCodeCombo += 5; 
     }
