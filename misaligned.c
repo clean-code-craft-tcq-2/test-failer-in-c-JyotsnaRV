@@ -2,8 +2,15 @@
 #include <assert.h>
 void testNumberColorPairCode(int colorNum, int majorColorCode, int minorColorCode);
 
+typedef struct{
+    int givenInputNum;
+    int givenColorCombo;
+    int actualColorCobo;
+}ColorComboCheck;
+ColorComboCheck ColorComboVar_St;
+
 int colorCodeCombo;
-int printColorMap() {
+ColorComboCheck printColorMap() {
     const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
     const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
     int i = 0, j = 0;
@@ -13,7 +20,8 @@ int printColorMap() {
             testNumberColorPairCode(i*5+j,i,j);
         }
     }
-    return i * j;
+    ColorComboVar_St.givenInputNum = i * j;
+    return ColorComboVar_St;
 }
 
 void testNumberColorPairCode(int colorNum, int majorColorCode, int minorColorCode)
@@ -31,16 +39,20 @@ void testNumberColorPairCode(int colorNum, int majorColorCode, int minorColorCod
     {
         /* do nothing */
     }
+    /* calculate the correct color code pair number with provide major and minor inputs */
     combo = majorColorCode*10;
     combo += minorColorCode;
+    /* calculate the correct pair number */
     expectedColorCombo = (colorNum+1) + colorCodeCombo;
     printf("actual color code \n pair number = %d \tcolor combo = %d\n",colorNum+1, expectedColorCombo);
-    assert(combo == expectedColorCombo);
+    ColorComboVar_St.givenColorCombo = combo;
+    ColorComboVar_St.actualColorCobo = expectedColorCombo;
 }
 
 int main() {
-    int result = printColorMap();
-    assert(result == 25);
+    ColorComboCheck result_St = printColorMap();
+    assert(result_St.givenInputNum == 25);
+    assert(result_St.givenColorCombo == result_St.actualColorCobo);
     printf("All is well (maybe!)\n");
     return 0;
 }
