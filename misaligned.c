@@ -41,7 +41,9 @@ void testNumberColorPairCode(int colorNum, int majorColorCode, int minorColorCod
     }
     /* calculate the correct color code pair number with provide major and minor inputs */
     combo = majorColorCode*10;
-    combo += minorColorCode;
+    /* based on line 19 where array index is used wrongly as i for both major and minor index the next line is commented for negative test case */
+//    combo += minorColorCode;
+    combo += majorColorCode;
     /* calculate the correct pair number */
     expectedColorCombo = (colorNum+1) + colorCodeCombo;
     printf("actual color code \n pair number = %d \tcolor combo = %d\n",colorNum+1, expectedColorCombo);
