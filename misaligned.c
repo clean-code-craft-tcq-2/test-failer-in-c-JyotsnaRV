@@ -18,7 +18,7 @@ int printColorMap() {
 
 void testNumberColorPairCode(int colorNum, int majorColorCode, int minorColorCode)
 {
-    int expectedColorCombo;
+    int expectedColorCombo, combo;
     if((colorNum+1) <= 5)
     {
         colorCodeCombo = -1;
@@ -31,9 +31,11 @@ void testNumberColorPairCode(int colorNum, int majorColorCode, int minorColorCod
     {
         /* do nothing */
     }
+    combo = majorColorCode*10;
+    combo += minorColorCode;
     expectedColorCombo = (colorNum+1) + colorCodeCombo;
     printf("actual color code \n pair number = %d \tcolor combo = %d\n",colorNum+1, expectedColorCombo);
-    assert((colorNum+1) == expectedColorCombo);
+    assert(combo == expectedColorCombo);
 }
 
 int main() {
