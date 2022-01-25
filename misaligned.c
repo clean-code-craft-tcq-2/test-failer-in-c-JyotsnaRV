@@ -4,8 +4,8 @@ void testNumberColorPairCode(int colorNum, int majorColorCode, int minorColorCod
 
 typedef struct{
     int givenInputNum;
-    int givenColorCombo;
-    int actualColorCobo;
+    int givenColorCombo[25];
+    int actualColorCobo[25];
 }ColorComboCheck;
 ColorComboCheck ColorComboVar_St;
 
@@ -45,14 +45,16 @@ void testNumberColorPairCode(int colorNum, int majorColorCode, int minorColorCod
     /* calculate the correct pair number */
     expectedColorCombo = (colorNum+1) + colorCodeCombo;
     printf("actual color code \n pair number = %d \tcolor combo = %d\n",colorNum+1, expectedColorCombo);
-    ColorComboVar_St.givenColorCombo = combo;
-    ColorComboVar_St.actualColorCobo = expectedColorCombo;
+    ColorComboVar_St.givenColorCombo[colorNum] = combo;
+    ColorComboVar_St.actualColorCobo[colorNum] = expectedColorCombo;
+    assert(ColorComboVar_St.givenColorCombo[colorNum] == ColorComboVar_St.actualColorCobo[colorNum]);
 }
 
 int main() {
+//    int checkComboNumber = 20;
     ColorComboCheck result_St = printColorMap();
     assert(result_St.givenInputNum == 25);
-    assert(result_St.givenColorCombo == result_St.actualColorCobo);
+//    assert(result_St.givenColorCombo[checkComboNumber] == result_St.actualColorCobo[checkComboNumber]);
     printf("All is well (maybe!)\n");
     return 0;
 }
