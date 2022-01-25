@@ -17,6 +17,7 @@ ColorComboCheck printColorMap() {
     for(i = 0; i < 5; i++) {
         for(j = 0; j < 5; j++) {
             printf("%d | %s | %s\n", i * 5 + j, majorColor[i], minorColor[i]);
+            /* update the test related checks and value for further checks using below mentioned function */
             testNumberColorPairCode(i*5+j,i,j);
         }
     }
@@ -27,6 +28,7 @@ ColorComboCheck printColorMap() {
 void testNumberColorPairCode(int colorNum, int majorColorCode, int minorColorCode)
 {
     int expectedColorCombo, combo;
+    /* refer the explanation mentioned at the bottom of this file  */
     if((colorNum) < 5)
     {
         colorCodeCombo = -1;
@@ -54,13 +56,53 @@ void testNumberColorPairCode(int colorNum, int majorColorCode, int minorColorCod
 }
 
 int main() {
-    int checkComboNumber = 20;
+    int checkComboNumber = 20; /* input anything between 0 - 24 */
     ColorComboCheck result_St = printColorMap();
     /* First assert will pass */
     assert(result_St.givenInputNum == 25);
-    /* negative test case */
-    printf(" input combination = %d \t expected combination = %d\n",result_St.givenColorCombo[checkComboNumber],result_St.actualColorCobo[checkComboNumber]);
-//    assert(result_St.givenColorCombo[checkComboNumber] == result_St.actualColorCobo[checkComboNumber]);
+    /* negative test case where combination will not match with the pair number*/
+//    printf(" pair number = %d \t input combination = %d \t expected combination = %d\n",checkComboNumber, result_St.givenColorCombo[checkComboNumber],result_St.actualColorCobo[checkComboNumber]);
+    assert(result_St.givenColorCombo[checkComboNumber] == result_St.actualColorCobo[checkComboNumber]);
     printf("All is well (maybe!)\n");
     return 0;
 }
+
+/* Reference serial number of color combos for testNumberColorPairCode function
+n => 0 to 24
+
+if n<5, combo = n-1
+0   00
+1   01
+2   02
+3   03
+4   04
+
+combo += 5
+5   10
+6   11
+7   12
+8   13
+9   14
+
+combo += 5
+10  20
+11  21
+12  22
+13  23
+14  24
+
+combo += 5
+15  30
+16  31
+17  32
+18  33
+19  34
+
+combo += 5
+20  40
+21  41
+22  42
+23  43
+24  44
+
+*/
