@@ -43,6 +43,7 @@ void testNumberColorPairCode(int colorNum, int majorColorCode, int minorColorCod
     combo = majorColorCode*10;
     /* based on line 19 where array index is used wrongly as i for both major and minor index the next line is commented for negative test case */
 //    combo += minorColorCode;
+(void)minorColorCode;
     combo += majorColorCode;
     /* calculate the correct pair number */
     expectedColorCombo = (colorNum+1) + colorCodeCombo;
