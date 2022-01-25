@@ -2,17 +2,29 @@
 #include <assert.h>
 
 int alertFailureCount = 0;
+float celciusTempReading;
 
 int networkAlertStub(float celcius) {
+    float retTempReading;
     printf("ALERT: Temperature is %.1f celcius.\n", celcius);
+    if(celcius>200)
+    {
+        retTempReading = 500;
+    }
+    else
+    {
+        retTempReading = 200;
+    }
     // Return 200 for ok
     // Return 500 for not-ok
     // stub always succeeds and returns 200
-    return 200;
+    return retTempReading;
 }
 
 void alertInCelcius(float farenheit) {
+    /* Convertion of farenheit to celcius */
     float celcius = (farenheit - 32) * 5 / 9;
+    celciusTempReading = celcius;
     int returnCode = networkAlertStub(celcius);
     if (returnCode != 200) {
         // non-ok response is not an error! Issues happen in life!
@@ -24,8 +36,17 @@ void alertInCelcius(float farenheit) {
 }
 
 int main() {
-    alertInCelcius(400.5);
-    alertInCelcius(303.6);
+    float farenheitReading;
+    farenheitReading = 400.5;
+    alertInCelcius(farenheitReading);
+    assert(alertFailureCount == 1);
+    assert((400.5) == celciusTempReading);
+    
+    farenheitReading = 303.6;
+    alertInCelcius(farenheitReading);
+    assert(alertFailureCount == 1);
+    assert((303.6) == celciusTempReading);
+    
     printf("%d alerts failed.\n", alertFailureCount);
     printf("All is well (maybe!)\n");
     return 0;
