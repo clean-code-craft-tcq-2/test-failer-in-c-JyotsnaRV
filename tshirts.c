@@ -14,9 +14,33 @@ char size(int cms) {
 }
 
 int main() {
-    assert(size(37) == 'S');
-    assert(size(40) == 'M');
-    assert(size(43) == 'L');
+    int sizePassed;
+    
+    sizePassed = 37;
+    printf("Checking Tshirt Size of %d\n",sizePassed);
+    assert(size(sizePassed) == 'S');
     printf("All is well (maybe!)\n");
+    
+    sizePassed = 40;
+    printf("Checking Tshirt Size of %d\n",sizePassed);
+    assert(size(sizePassed) == 'M');
+    printf("All is well (maybe!)\n");
+    
+    sizePassed = 43;
+    printf("Checking Tshirt Size of %d\n",sizePassed);
+    assert(size(sizePassed) == 'L');
+    printf("All is well (maybe!)\n");
+   
+    /* Negative Testcases for uncovered inputs */
+    sizePassed = 38;
+    printf("Checking Tshirt Size of %d\n",sizePassed);
+    assert(size(sizePassed) == 'M');
+    printf("All is well (maybe!)\n");
+   
+    sizePassed = 42;
+    printf("Checking Tshirt Size of %d\n",sizePassed);
+    assert(size(sizePassed) == 'L');
+    printf("All is well (maybe!)\n");
+    
     return 0;
 }
