@@ -23,7 +23,7 @@ void testNumberColorPairCode(int colorNum, int majorColorCode, int minorColorCod
     {
         colorCodeCombo = -1;
     }
-    else((colorNum+1)%5 == 0)
+    else if((colorNum+1)%5 == 0)
     {
         colorCodeCombo += 5; 
     }
