@@ -49,7 +49,7 @@ void testNumberColorPairCode(int colorNum, int majorColorCode, int minorColorCod
    // combo += majorColorCode; /* comment this line for negative test case */
     /* calculate the correct pair number */
     expectedColorCombo = (colorNum+1) + colorCodeCombo;
-    printf("actual color code \n pair number = %d \tcolor combo = %d\n",colorNum+1, expectedColorCombo);
+    printf("actual color code \n pair number = %d \tcolor combo = %d /t colorCodeCombo = %d  \n",colorNum+1, expectedColorCombo, colorCodeCombo);
     ColorComboVar_St.givenColorCombo[colorNum] = combo;
     ColorComboVar_St.actualColorCobo[colorNum] = expectedColorCombo;
 //    assert(ColorComboVar_St.givenColorCombo[colorNum] == ColorComboVar_St.actualColorCobo[colorNum]);
