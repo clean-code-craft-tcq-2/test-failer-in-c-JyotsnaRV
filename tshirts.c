@@ -34,7 +34,7 @@ int main() {
     /* Negative Testcases for uncovered inputs only when there is no code modificatiion in line 6 and 10 */
     sizePassed = 38;
     printf("Checking Tshirt Size of %d\n",sizePassed);
-    assert(size(sizePassed) == 'M');
+    assert(size(sizePassed) == 'S');
     printf("All is well (maybe!)\n");
    
     sizePassed = 42;
