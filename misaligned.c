@@ -61,7 +61,7 @@ int main() {
     /* First assert will pass */
     assert(result_St.givenInputNum == 25);
     /* negative test case where combination will not match with the pair number*/
-//    printf(" pair number = %d \t input combination = %d \t expected combination = %d\n",checkComboNumber, result_St.givenColorCombo[checkComboNumber],result_St.actualColorCobo[checkComboNumber]);
+    printf(" pair number = %d \t input combination = %d \t expected combination = %d\n",checkComboNumber, result_St.givenColorCombo[checkComboNumber],result_St.actualColorCobo[checkComboNumber]);
     assert(result_St.givenColorCombo[checkComboNumber] == result_St.actualColorCobo[checkComboNumber]);
     printf("All is well (maybe!)\n");
     return 0;
