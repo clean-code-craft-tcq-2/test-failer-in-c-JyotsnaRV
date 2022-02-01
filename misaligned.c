@@ -16,7 +16,7 @@ ColorComboCheck printColorMap() {
     int i = 0, j = 0;
     for(i = 0; i < 5; i++) {
         for(j = 0; j < 5; j++) {
-            printf("%d | %s | %s\n", i * 5 + j, majorColor[i], minorColor[i]);
+            printf("%d | %s | %s\n", i * 5 + j, majorColor[i], minorColor[j]); /* minor color array index is corrected as 'j' to make test case pass */
             /* update the test related checks and value for further checks using below mentioned function */
             testNumberColorPairCode(i*5+j,i,j);
         }
@@ -44,9 +44,9 @@ void testNumberColorPairCode(int colorNum, int majorColorCode, int minorColorCod
     /* calculate the correct color code pair number with provide major and minor inputs */
     combo = majorColorCode*10;
     /* based on line 19 where array index is used wrongly as i for both major and minor index the next line is commented for negative test case */
-//    combo += minorColorCode;
-(void)minorColorCode;
-    combo += majorColorCode;
+    combo += minorColorCode; /* uncommented for positive test case */
+   // (void)minorColorCode; /* comment this line for negative test case */
+   // combo += majorColorCode; /* comment this line for negative test case */
     /* calculate the correct pair number */
     expectedColorCombo = (colorNum+1) + colorCodeCombo;
     printf("actual color code \n pair number = %d \tcolor combo = %d\n",colorNum+1, expectedColorCombo);
