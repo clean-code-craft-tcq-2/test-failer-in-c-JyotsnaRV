@@ -3,11 +3,11 @@
 
 char size(int cms) {
     char sizeName = '\0';
-    if(cms < 38) {
+    if(cms <= 38) { /*  changed from'<' to '≤' */
         sizeName = 'S';
     } else if(cms > 38 && cms < 42) {
         sizeName = 'M';
-    } else if(cms > 42) {
+    } else if(cms >= 42) {/*  changed from'>' to '≥' */
         sizeName = 'L';
     }
     return sizeName;
@@ -31,7 +31,7 @@ int main() {
     assert(size(sizePassed) == 'L');
     printf("All is well (maybe!)\n");
    
-    /* Negative Testcases for uncovered inputs */
+    /* Negative Testcases for uncovered inputs only when there is no code modificatiion in line 6 and 10 */
     sizePassed = 38;
     printf("Checking Tshirt Size of %d\n",sizePassed);
     assert(size(sizePassed) == 'M');
